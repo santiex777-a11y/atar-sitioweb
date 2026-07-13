@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiet Horizon — El Arte del Cielo Poniente</title>
+
+    <!-- SEO y Metadatos del Ocaso -->
+    <meta
+      name="description"
+      content="Exposición digital inmersiva y contemplativa dedicada exclusivamente al estudio de los atardeceres, el cielo poniente y la degradación de la luz sobre el horizonte natural."
+    />
+    <meta
+      name="keywords"
+      content="Atardecer, Cielo, Ocaso, Hora Dorada, Crepúsculo, Sol poniente, Horizonte, Nubes, Naturaleza, GSAP, Lenis"
+    />
+    <meta name="author" content="Quiet Horizon Studio" />
+    <link
+      rel="canonical"
+      href="https://santiex777-a11y.github.io/atar-sitioweb/"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://santiex777-a11y.github.io/atar-sitioweb/"
+    />
+    <meta
+      property="og:title"
+      content="Quiet Horizon — El Arte del Cielo Poniente"
+    />
+    <meta
+      property="og:description"
+      content="Una experiencia digital interactiva donde el tiempo se detiene para contemplar la última luz del firmamento."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=1200&h=630&q=80"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://santiex777-a11y.github.io/atar-sitioweb/"
+    />
+    <meta
+      property="twitter:title"
+      content="Quiet Horizon — El Arte del Cielo Poniente"
+    />
+    <meta
+      property="twitter:description"
+      content="Una experiencia digital interactiva donde el tiempo se detiene para contemplar la última luz del firmamento."
+    />
+    <meta
+      property="twitter:image"
+      content="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=1200&h=630&q=80"
+    />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0d0907" />
+
+    <!-- Tipografías Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CDNs de Animación y Desplazamiento -->
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- SplitType para Revelados Tipográficos -->
+    <script src="https://unpkg.com/split-type"></script>
+
+    <!-- Estilos del Proyecto -->
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- Atajo de Accesibilidad -->
+    <a href="#main-content" class="skip-to-content"
+      >Saltar al contenido de la exposición</a
+    >
+
+    <!-- Cursor Líquido Custom -->
+    <div class="custom-cursor" id="js-cursor" aria-hidden="true">
+      <div class="custom-cursor__inner"></div>
+      <div class="custom-cursor__text">CIELO</div>
+    </div>
+
+    <!-- Textura Analógica de Grano -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Preloader de Precisión -->
+    <div
+      class="preloader"
+      id="js-preloader"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Cargando Quiet Horizon"
+    >
+      <div class="preloader__inner">
+        <div class="preloader__meta">
+          <span class="preloader__coordinate">00°42'18" S / 78°28'20" O</span>
+          <span class="preloader__concept"
+            >QUIET HORIZON — ARCHIVO DE LA LUZ</span
+          >
+        </div>
+        <div class="preloader__progress">
+          <div class="preloader__bar" id="js-preloader-bar"></div>
+        </div>
+        <div class="preloader__footer">
+          <span class="preloader__loading-text">ESPERANDO EL ATARDECER</span>
+          <span class="preloader__percentage" id="js-preloader-perc">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controlador de Audio Atmosférico -->
+    <button
+      class="audio-toggle"
+      id="js-audio-toggle"
+      aria-label="Activar sintonía de atardecer"
+      aria-pressed="false"
+    >
+      <div class="audio-toggle__icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="audio-toggle__text">SONIDO APAGADO</span>
+    </button>
+
+    <!-- Cabecera Editorial -->
+    <header class="header" role="banner">
+      <div class="header__container">
+        <a href="#" class="header__logo" aria-label="Quiet Horizon Atardeceres">
+          QUIET HORIZON
+        </a>
+
+        <nav
+          class="header__nav"
+          role="navigation"
+          aria-label="Navegación Ocaso"
+        >
+          <ul class="header__nav-list">
+            <li><a href="#editorial" class="nav-link">01 / EL CIELO</a></li>
+            <li><a href="#journey" class="nav-link">02 / LA TRANSICIÓN</a></li>
+            <li><a href="#gallery" class="nav-link">03 / HORIZONTES</a></li>
+            <li><a href="#contact" class="nav-link">04 / DIÁLOGO</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__meta">
+          <span class="header__coordinate">HORA DE OREGÓN — 18:42</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenedor Principal de la Exposición -->
+    <main id="main-content" role="main" tabindex="-1">
+      <!-- ================= HERO: EL PRIMER DESTELLO ================= -->
+      <section class="hero" id="hero" aria-label="Atardecer Inmersivo">
+        <div class="hero__bg-container">
+          <img
+            src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=2000&q=80"
+            alt="Inmenso atardecer sobre el mar teñido de naranja profundo y dorado"
+            class="hero__bg-img"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="hero__overlay"></div>
+        </div>
+
+        <div class="hero__container">
+          <div class="hero__top">
+            <span class="micro-tag">EXPOSICIÓN PURA DE LA NATURALEZA</span>
+            <span class="hero__num">00</span>
+          </div>
+
+          <div class="hero__mid">
+            <h1 class="hero__title" data-split>
+              <span class="hero__title-line">EL INSTANTE</span>
+              <span class="hero__title-line hero__title-line--indent"
+                >DEL OCASO</span
+              >
+            </h1>
+          </div>
+
+          <div class="hero__bottom">
+            <div class="hero__desc-col">
+              <p class="hero__desc">
+                Una contemplación visual y fotográfica dedicada al momento
+                exacto en que el sol se funde con el horizonte, tiñendo el cielo
+                de fuego silencioso.
+              </p>
+            </div>
+            <div class="hero__scroll-indicator">
+              <span class="indicator-arrow">↓</span>
+              <span class="indicator-text">DESLIZA HACIA EL CREPÚSCULO</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EDITORIAL: ENSAYO SOBRE EL OCASO ================= -->
+      <section class="editorial" id="editorial" aria-label="Ensayo del Ocaso">
+        <div class="editorial__container">
+          <div class="grid-system">
+            <!-- Columna Izquierda Fija -->
+            <div class="col-left">
+              <div class="editorial__meta-sticky">
+                <span class="editorial__num">01</span>
+                <span class="micro-tag">NOTAS DE CAMPO</span>
+                <p class="editorial__small-note">
+                  "El atardecer no apaga la luz; cambia su frecuencia para
+                  recordarnos la belleza de lo que se desvanece de forma lenta y
+                  deliberada en el firmamento."
+                </p>
+                <span class="coordinate-tag">LÍNEA DE LUZ — 120MM</span>
+              </div>
+            </div>
+
+            <!-- Columna Derecha Narrativa -->
+            <div class="col-right">
+              <div class="editorial__content">
+                <h2 class="editorial__heading" data-split>
+                  Un homenaje a los tonos ámbar que transforman el cielo en una
+                  obra de arte efímera.
+                </h2>
+
+                <figure class="editorial__figure reveal-image">
+                  <div class="image-wrapper">
+                    <img
+                      src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=80"
+                      alt="Bruma del atardecer tiñendo las copas de los árboles en las montañas de tonos dorados"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <figcaption class="editorial__caption">
+                    <span
+                      >FIG 01. — LA ENTRADA DE LA LUZ CÁLIDA EN EL PAISAJE EN
+                      PENUMBRA</span
+                    >
+                    <span>MEDITACIÓN EN ÁMBAR</span>
+                  </figcaption>
+                </figure>
+
+                <div class="editorial__body">
+                  <p class="lead-text">
+                    La caída del sol tiene el poder absoluto de ralentizar
+                    nuestro pulso. Cuando la luz oblicua atraviesa la atmósfera,
+                    cada partícula de aire se satura de un espectro cálido que
+                    invita al reposo visual.
+                  </p>
+                  <p class="body-text">
+                    A través de este espacio, celebramos la quietud de los
+                    atardeceres y la inmensidad del cielo. No hay construcciones
+                    que interfieran, no hay ruido visual. Estudiamos cómo la luz
+                    se degrada de forma gradual, cómo las nubes retienen los
+                    últimos pigmentos de fuego y cómo la transición hacia la
+                    noche nos regala una tregua donde lo único que importa es
+                    contemplar el horizonte.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= JOURNEY: LOS TRES ESTADOS DE LA LUZ (HORIZONTAL) ================= -->
+      <section class="journey" id="journey" aria-label="Estados del Atardecer">
+        <div class="journey__sticky-wrapper" id="js-journey-sticky">
+          <!-- Progreso de Lectura -->
+          <div class="journey__progress-indicator" aria-hidden="true">
+            <span class="journey__progress-label"
+              >CAPÍTULO 02 — LA CRONOLOGÍA DE LA LUZ</span
+            >
+            <div class="journey__bar-container">
+              <div class="journey__fill" id="js-journey-bar"></div>
+            </div>
+          </div>
+
+          <!-- Desplazamiento Horizontal GSAP -->
+          <div class="journey__horizontal-scroll" id="js-journey-scroll">
+            <!-- Slide 1: Introducción -->
+            <div class="journey__slide journey__slide--intro">
+              <div class="slide-intro__content">
+                <span class="micro-tag">CRONOLOGÍA SOLAR</span>
+                <h2 class="slide-intro__title">
+                  La Evolución de <br />la Luz Natural
+                </h2>
+                <p class="slide-intro__desc">
+                  Desplázate horizontalmente para presenciar las tres fases
+                  sagradas del atardecer sobre la inmensidad del cielo.
+                </p>
+                <div class="slide-intro__arrow">
+                  <span>SCROLL HACIA EL ESTE</span>
+                  <span class="arrow-right">→</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: La Hora Dorada -->
+            <div class="journey__slide">
+              <div class="pillar-card">
+                <span class="pillar-card__num">02.1</span>
+                <div class="pillar-card__img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1509803874385-db7c23652552?auto=format&fit=crop&w=1000&q=80"
+                    alt="Nubes iluminadas por los rayos de la hora dorada"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="pillar-card__text">
+                  <span class="micro-tag">FASE UNO</span>
+                  <h3 class="pillar-card__title">La Hora Dorada</h3>
+                  <p class="pillar-card__desc">
+                    El sol baja a su punto más bajo. Sus rayos horizontales
+                    atraviesan una capa atmosférica más gruesa, filtrando los
+                    tonos fríos y tiñendo las nubes altas de un resplandor ocre
+                    y dorado de alta intensidad.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: El Crepúsculo -->
+            <div class="journey__slide">
+              <div class="pillar-card">
+                <span class="pillar-card__num">02.2</span>
+                <div class="pillar-card__img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1501183007986-d0d080b147f9?auto=format&fit=crop&w=1000&q=80"
+                    alt="Intensas nubes iluminadas por los últimos rayos naranjas"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="pillar-card__text">
+                  <span class="micro-tag">FASE DOS</span>
+                  <h3 class="pillar-card__title">El Crepúsculo</h3>
+                  <p class="pillar-card__desc">
+                    El disco solar cruza el horizonte. La luz directa se apaga
+                    pero deja en el cielo un degradado infinito que avanza desde
+                    el naranja fuego hasta los violetas y cobaltos de la
+                    atmósfera alta.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: El Ocaso Absoluto -->
+            <div class="journey__slide">
+              <div class="pillar-card">
+                <span class="pillar-card__num">02.3</span>
+                <div class="pillar-card__img-container">
+                  <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80"
+                    alt="El último destello naranja sobre el mar infinito bajo un degradado suave"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="pillar-card__text">
+                  <span class="micro-tag">FASE TRES</span>
+                  <h3 class="pillar-card__title">El Ocaso Absoluto</h3>
+                  <p class="pillar-card__desc">
+                    La última vibración de luz cálida desaparece de las nubes.
+                    Queda únicamente una fina línea ardiente en el horizonte
+                    marino, el recordatorio final de que la belleza radica en lo
+                    efímero.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GALLERY: ARCHIVO DE HORIZONTES ================= -->
+      <section class="gallery" id="gallery" aria-label="Galería de Atardeceres">
+        <div class="gallery__container">
+          <div class="gallery__header">
+            <div class="gallery__header-left">
+              <span class="micro-tag">03 / ARCHIVO VISUAL</span>
+              <h2 class="gallery__title">Cielos <br />Bañados en Fuego</h2>
+            </div>
+            <div class="gallery__header-right">
+              <p class="gallery__intro-text">
+                Una colección de capturas editoriales que registran la
+                metamorfosis del horizonte natural bajo la caída de la tarde.
+              </p>
+            </div>
+          </div>
+
+          <!-- Galería Asimétrica de Cielos y Atardeceres -->
+          <div class="gallery__grid">
+            <!-- Atardecer de Nubes Espectaculares -->
+            <div
+              class="gallery__item gallery__item--large reveal-image"
+              data-speed="0.04"
+            >
+              <div class="gallery__item-inner">
+                <div class="image-wrapper">
+                  <img
+                    src="https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?auto=format&fit=crop&w=1200&q=80"
+                    alt="Cielo cubierto de nubes espectaculares iluminadas con un naranja fuego radiante"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="gallery__item-meta">
+                  <span>03.1 — ESPECTÁCULO</span>
+                  <span>CIELO ACANALADO DE ÁMBAR Y FUEGO</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Atardecer en Montañas y Niebla -->
+            <div
+              class="gallery__item gallery__item--medium reveal-image"
+              data-speed="-0.02"
+            >
+              <div class="gallery__item-inner">
+                <div class="image-wrapper">
+                  <img
+                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                    alt="Un atardecer dorado brillando entre cañones y montañas"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="gallery__item-meta">
+                  <span>03.2 — VALLE SOLITARIO</span>
+                  <span>LUZ OBLICUA EN LA MONTAÑA</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Atardecer Desértico Infinito -->
+            <div
+              class="gallery__item gallery__item--horizontal reveal-image"
+              data-speed="0.01"
+            >
+              <div class="gallery__item-inner">
+                <div class="image-wrapper">
+                  <img
+                    src="https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&w=1200&q=80"
+                    alt="Cielo limpio del desierto con un degradado perfecto en naranja cálido"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="gallery__item-meta">
+                  <span>03.3 — DESIERTO LIMITADO</span>
+                  <span>LA GRADACIÓN DEL HORIZONTE LIMPIO</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Atardecer Siluetas Silvestres -->
+            <div
+              class="gallery__item gallery__item--small reveal-image"
+              data-speed="-0.04"
+            >
+              <div class="gallery__item-inner">
+                <div class="image-wrapper">
+                  <img
+                    src="https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&w=800&q=80"
+                    alt="Hierbas secas silvestres silueteadas contra un sol poniente cálido y desenfocado"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="gallery__item-meta">
+                  <span>03.4 — CONTRASTE NATURALEZA</span>
+                  <span>CONTRALUZ EN EL RETORNO DE LA SOMBRA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT: PROPUESTA AL SILENCIO ================= -->
+      <section class="contact" id="contact" aria-label="Contacto">
+        <div class="contact__container">
+          <div class="contact__grid">
+            <!-- Diálogo Crepuscular -->
+            <div class="contact__left">
+              <span class="micro-tag">04 / PENSAMIENTOS DE LUZ</span>
+              <h2 class="contact__title" data-split>
+                Hablemos del <br /><em>atardecer</em>.
+              </h2>
+              <p class="contact__lead">
+                ¿Compartes nuestra devoción por los minutos contados de luz
+                cálida y el espectáculo del cielo en calma? Escríbenos para
+                compartir ideas, fotografías o inspiraciones sobre el ocaso.
+              </p>
+            </div>
+
+            <!-- Formulario Premium -->
+            <div class="contact__right">
+              <form
+                class="contact__form"
+                id="js-contact-form"
+                autocomplete="off"
+              >
+                <div class="form-group">
+                  <label for="name" class="form-group__label">TU NOMBRE</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-group__input"
+                    placeholder="Nombre completo"
+                    required
+                  />
+                  <span class="form-group__line"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-group__label"
+                    >CORREO ELECTRÓNICO</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-group__input"
+                    placeholder="correo@ejemplo.com"
+                    required
+                  />
+                  <span class="form-group__line"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="form-group__label"
+                    >DIALOGO / IDEA CREPUSCULAR</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-group__input form-group__input--textarea"
+                    placeholder="¿Qué evoca en ti la caída de la tarde?"
+                    required
+                  ></textarea>
+                  <span class="form-group__line"></span>
+                </div>
+
+                <div class="form-submit-wrapper">
+                  <button type="submit" class="submit-btn" id="js-submit-btn">
+                    <span class="submit-btn__bg"></span>
+                    <span class="submit-btn__text">ENVIAR AL CREPÚSCULO</span>
+                    <span class="submit-btn__arrow">→</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER: EL FIN DE LA LUZ ================= -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <h3 class="footer__logo">QUIET HORIZON</h3>
+            <p class="footer__slogan">
+              La persistencia y el estudio visual del cielo y del atardecer.
+            </p>
+          </div>
+          <div class="footer__links">
+            <div class="footer__col">
+              <span class="footer__heading">CRÉDITOS VISUALES</span>
+              <ul>
+                <li>
+                  <span class="footer-link"
+                    >Concepto — Atardeceres del Mundo</span
+                  >
+                </li>
+                <li>
+                  <span class="footer-link"
+                    >Retícula — Estudio Minimalista</span
+                  >
+                </li>
+                <li>
+                  <span class="footer-link">Librerías — GSAP & Lenis</span>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__col">
+              <span class="footer__heading">COORDENADAS SOLAR</span>
+              <ul>
+                <li>
+                  <span class="footer-link">Ocaso — Horario Variable</span>
+                </li>
+                <li><span class="footer-link">Latitud — 00°42'18" S</span></li>
+                <li><span class="footer-link">Exposición — Año 2026</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            &copy; 2026 Quiet Horizon. Todos los derechos reservados. Diseñado
+            para observar el último rayo de luz sobre el cielo.
+          </p>
+          <div class="footer__extra">
+            <span class="micro-tag">CANDIDATO SITIO DEL DÍA — AWWWARDS</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Audio del Drone Atmosférico Sutil -->
+    <audio
+      id="js-bg-audio"
+      loop
+      preload="auto"
+      src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav"
+    ></audio>
+
+    <!-- Script Principal -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
