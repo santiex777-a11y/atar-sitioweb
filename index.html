@@ -3,121 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiet Horizon — An Immersive Editorial Digital Experience</title>
+    <title>Quiet Horizon — El Arte del Atardecer</title>
     
-    <!-- SEO & Metadata -->
-    <meta name="description" content="An immersive digital experience inspired by contemporary architecture, Japanese minimalism, and open landscapes. Designed for deep contemplation.">
-    <meta name="keywords" content="Minimalism, Architecture, Digital Art, Immersive Web, GSAP, Premium UI, Editorial Design, Quiet Horizon">
+    <!-- SEO & Metadatos del Ocaso -->
+    <meta name="description" content="Exposición digital inmersiva y contemplativa dedicada exclusivamente al estudio visual del atardecer, la hora dorada y el crepúsculo.">
+    <meta name="keywords" content="Atardecer, Ocaso, Hora Dorada, Crepúsculo, Minimalismo, Diseño Editorial, GSAP, Apple, Cuberto">
     <meta name="author" content="Quiet Horizon Studio">
     <link rel="canonical" href="https://quiet-horizon.github.io/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://quiet-horizon.github.io/">
-    <meta property="og:title" content="Quiet Horizon — An Immersive Editorial Digital Experience">
-    <meta property="og:description" content="Explore a digital exhibition inspired by contemporary architecture, Japanese minimalism, and the beauty of silence.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:title" content="Quiet Horizon — El Arte del Atardecer">
+    <meta property="og:description" content="Una experiencia interactiva donde el hormigón, el silencio y la luz del sol poniente se funden en un solo instante.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&h=630&q=80">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://quiet-horizon.github.io/">
-    <meta property="twitter:title" content="Quiet Horizon — An Immersive Editorial Digital Experience">
-    <meta property="twitter:description" content="Explore a digital exhibition inspired by contemporary architecture, Japanese minimalism, and the beauty of silence.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="twitter:title" content="Quiet Horizon — El Arte del Atardecer">
+    <meta property="twitter:description" content="Una experiencia interactiva donde el hormigón, el silencio y la luz del sol poniente se funden en un solo instante.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&h=630&q=80">
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0d0d0d">
+    <meta name="theme-color" content="#0a0a0a">
 
-    <!-- Fonts -->
+    <!-- Tipografías de Estudio -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
-    <!-- Core CDNs -->
+    <!-- Motores CDN de Animación y Scroll -->
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- SplitType for Typography Animations -->
+    <!-- SplitType para Revelados Tipográficos -->
     <script src="https://unpkg.com/split-type"></script>
 
-    <!-- Project Stylesheet -->
+    <!-- Archivo de Estilos Exclusivo -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <!-- Accessibilty Shortcut -->
-    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <!-- Atajo de Accesibilidad Teclado -->
+    <a href="#main-content" class="skip-to-content">Saltar al contenido del ocaso</a>
 
-    <!-- Custom Liquid Premium Cursor -->
+    <!-- Cursor Líquido Interactivos -->
     <div class="custom-cursor" id="js-cursor" aria-hidden="true">
         <div class="custom-cursor__inner"></div>
-        <div class="custom-cursor__text">EXPLORE</div>
+        <div class="custom-cursor__text">OCASO</div>
     </div>
 
-    <!-- Noise Overlay for Cinematic Texture -->
+    <!-- Textura Grano Cinematográfica -->
     <div class="grain-overlay" aria-hidden="true"></div>
 
-    <!-- Preloader Experience -->
-    <div class="preloader" id="js-preloader" role="dialog" aria-modal="true" aria-label="Loading Quiet Horizon">
+    <!-- Preloader de Precisión -->
+    <div class="preloader" id="js-preloader" role="dialog" aria-modal="true" aria-label="Cargando Quiet Horizon">
         <div class="preloader__inner">
             <div class="preloader__meta">
-                <span class="preloader__coordinate">00°42'18" S / 78°28'20" W</span>
-                <span class="preloader__concept">QUIET HORIZON</span>
+                <span class="preloader__coordinate">00°42'18" S / 78°28'20" O</span>
+                <span class="preloader__concept">QUIET HORIZON — SUNSET ARCHIVE</span>
             </div>
             <div class="preloader__progress">
                 <div class="preloader__bar" id="js-preloader-bar"></div>
             </div>
             <div class="preloader__footer">
-                <span class="preloader__loading-text">OBSERVING SILENCE</span>
+                <span class="preloader__loading-text">ESPERANDO EL ATARDECER</span>
                 <span class="preloader__percentage" id="js-preloader-perc">0%</span>
             </div>
         </div>
     </div>
 
-    <!-- Global Audio Control -->
-    <button class="audio-toggle" id="js-audio-toggle" aria-label="Toggle ambient music" aria-pressed="false">
+    <!-- Controlador de Audio Sutil -->
+    <button class="audio-toggle" id="js-audio-toggle" aria-label="Activar sintonía de atardecer" aria-pressed="false">
         <div class="audio-toggle__icon" aria-hidden="true">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <span class="audio-toggle__text">SOUND OFF</span>
+        <span class="audio-toggle__text">MÚSICA APAGADA</span>
     </button>
 
-    <!-- Global Header / Interactive Navigation -->
+    <!-- Cabecera Editorial -->
     <header class="header" role="banner">
         <div class="header__container">
-            <a href="#" class="header__logo" aria-label="Quiet Horizon Home">
+            <a href="#" class="header__logo" aria-label="Quiet Horizon Atardeceres">
                 QUIET HORIZON
             </a>
             
-            <nav class="header__nav" role="navigation" aria-label="Main Navigation">
+            <nav class="header__nav" role="navigation" aria-label="Navegación Ocaso">
                 <ul class="header__nav-list">
-                    <li><a href="#editorial" class="nav-link">01 / CONCEPT</a></li>
-                    <li><a href="#journey" class="nav-link">02 / JOURNEY</a></li>
-                    <li><a href="#gallery" class="nav-link">03 / ARCHIVE</a></li>
-                    <li><a href="#contact" class="nav-link">04 / DIALOGUE</a></li>
+                    <li><a href="#editorial" class="nav-link">01 / EL OCASO</a></li>
+                    <li><a href="#journey" class="nav-link">02 / LA TRANSICIÓN</a></li>
+                    <li><a href="#gallery" class="nav-link">03 / HORIZONTES</a></li>
+                    <li><a href="#contact" class="nav-link">04 / DIÁLOGO</a></li>
                 </ul>
             </nav>
 
             <div class="header__meta">
-                <span class="header__coordinate">QUITO, EC — 2026</span>
+                <span class="header__coordinate">HORA DE OREGÓN — 18:42</span>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Container -->
+    <!-- Contenedor Principal de la Exposición -->
     <main id="main-content" role="main" tabindex="-1">
 
-        <!-- ================= HERO SECTION ================= -->
-        <section class="hero" id="hero" aria-label="Welcome to Quiet Horizon">
+        <!-- ================= HERO: EL PRIMER DESTELLO ================= -->
+        <section class="hero" id="hero" aria-label="Atardecer Inmersivo">
             <div class="hero__bg-container">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" 
-                     alt="Brutalist concrete house integrated in a foggy mountain landscape" 
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=80" 
+                     alt="Residencia minimalista brutalista iluminada por un atardecer naranja profundo" 
                      class="hero__bg-img" 
                      loading="eager" 
                      decoding="async">
@@ -126,74 +126,74 @@
 
             <div class="hero__container">
                 <div class="hero__top">
-                    <span class="micro-tag">INTRODUCING</span>
+                    <span class="micro-tag">EXPOSICIÓN DIGITAL</span>
                     <span class="hero__num">00</span>
                 </div>
 
                 <div class="hero__mid">
                     <h1 class="hero__title" data-split>
-                        <span class="hero__title-line">THE SILENCE</span>
-                        <span class="hero__title-line hero__title-line--indent">OF MATERIALITY</span>
+                        <span class="hero__title-line">LA SUTILEZA</span>
+                        <span class="hero__title-line hero__title-line--indent">DEL ATARDECER</span>
                     </h1>
                 </div>
 
                 <div class="hero__bottom">
                     <div class="hero__desc-col">
                         <p class="hero__desc">
-                            An architectural reflection across open spaces, soft shadows, and Japanese minimalism. A journey beyond functional form.
+                            Una exploración espacial y fotográfica del instante preciso en que el sol se sumerge en el horizonte, bañando el hormigón en tonos de fuego silencioso.
                         </p>
                     </div>
                     <div class="hero__scroll-indicator">
                         <span class="indicator-arrow">↓</span>
-                        <span class="indicator-text">SCROLL TO OBSERVE</span>
+                        <span class="indicator-text">DESLIZA HACIA EL CREPÚSCULO</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= EDITORIAL CONCEPT SECTION ================= -->
-        <section class="editorial" id="editorial" aria-label="Editorial Essay">
+        <!-- ================= EDITORIAL: ENSAYO SOBRE EL OCASO ================= -->
+        <section class="editorial" id="editorial" aria-label="Ensayo del Ocaso">
             <div class="editorial__container">
                 <div class="grid-system">
                     
-                    <!-- Left: Floating Editorial Meta Data -->
+                    <!-- Columna de Notas de Campo -->
                     <div class="col-left">
                         <div class="editorial__meta-sticky">
                             <span class="editorial__num">01</span>
-                            <span class="micro-tag">FIELD NOTES</span>
+                            <span class="micro-tag">NOTAS DEL OCASO</span>
                             <p class="editorial__small-note">
-                                "In the empty spaces, architecture reveals its true soul. Silence is not an absence, but a presence of light."
+                                "El atardecer no es el final de la luz, sino la transición más pura del color, un diálogo entre el sol poniente y las sombras."
                             </p>
-                            <span class="coordinate-tag">00°42'18" S / 78°28'20" W</span>
+                            <span class="coordinate-tag">ÚLTIMO DESTELLO — 120MM</span>
                         </div>
                     </div>
 
-                    <!-- Right: Narrative Composition -->
+                    <!-- Columna de Narrativa -->
                     <div class="col-right">
                         <div class="editorial__content">
                             <h2 class="editorial__heading" data-split>
-                                An aesthetic response to quietness, texture, and light.
+                                Un homenaje a los tonos ámbar que transforman la arquitectura en pura poesía cromática.
                             </h2>
                             
                             <figure class="editorial__figure reveal-image">
                                 <div class="image-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=80" 
-                                         alt="Light casting poetic shadows across a minimal concrete corridor" 
+                                    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80" 
+                                         alt="Un interior minimalista bañado por las sombras cálidas del sol del atardecer" 
                                          loading="lazy" 
                                          decoding="async">
                                 </div>
                                 <figcaption class="editorial__caption">
-                                    <span>FIG 01. — ESSAY ON LIGHT AND CONCRETE</span>
-                                    <span>ESTABLISHED 2026</span>
+                                    <span>FIG 01. — LA ENTRADA DE LA LUZ CÁLIDA EN EL ESPACIO DESNUDO</span>
+                                    <span>MEDITACIÓN EN ÁMBER</span>
                                 </figcaption>
                             </figure>
 
                             <div class="editorial__body">
                                 <p class="lead-text">
-                                    We believe that design should not fight for attention. It should sit quietly in space, waiting to be noticed, allowing the mind of the observer to inhabit its forms.
+                                    La caída del sol tiene la capacidad única de desacelerar nuestro pulso. Cuando la luz oblicua toca la piedra, el desierto o los bosques, cada línea se vuelve nítida y cada color se reduce a su espectro más cálido y primitivo.
                                 </p>
                                 <p class="body-text">
-                                    Quiet Horizon is born from a desire to return to fundamentals. Combining modern Scandinavian clean layouts with the spiritual depths of Japanese minimalism, we seek to frame environments where the physical and the digital boundaries dissolve. Each curve, shadow, and line is balanced deliberately inside a grid built to breathe.
+                                    En este primer capítulo, celebramos la quietud de los atardeceres. No buscamos la espectacularidad ruidosa, sino el desvanecimiento lento y elegante del día. Estudiamos cómo la luz tiñe de dorado las geometrías sencillas del minimalismo contemporáneo, invitando al observador a habitar los vacíos antes de que la noche reclame el espacio por completo.
                                 </p>
                             </div>
                         </div>
@@ -203,91 +203,91 @@
             </div>
         </section>
 
-        <!-- ================= JOURNEY (HORIZONTAL NARRATIVE) ================= -->
-        <section class="journey" id="journey" aria-label="Interactive Journey">
+        <!-- ================= JOURNEY: LOS TRES ESTADOS DEL ATARDECER (HORIZONTAL) ================= -->
+        <section class="journey" id="journey" aria-label="Estados del Atardecer">
             <div class="journey__sticky-wrapper" id="js-journey-sticky">
                 
-                <!-- Background Progress Label -->
+                <!-- Progreso -->
                 <div class="journey__progress-indicator" aria-hidden="true">
-                    <span class="journey__progress-label">CHAPTER TWO</span>
+                    <span class="journey__progress-label">CAPÍTULO 02 — LOS ESTADOS DEL ATARDECER</span>
                     <div class="journey__bar-container">
                         <div class="journey__fill" id="js-journey-bar"></div>
                     </div>
                 </div>
 
-                <!-- Horizontal Container -->
+                <!-- Desplazamiento Horizontal GSAP -->
                 <div class="journey__horizontal-scroll" id="js-journey-scroll">
                     
-                    <!-- Slide 1: Intro Section -->
+                    <!-- Slide 1: Introducción -->
                     <div class="journey__slide journey__slide--intro">
                         <div class="slide-intro__content">
-                            <span class="micro-tag">NARRATIVE EXPERIENCE</span>
-                            <h2 class="slide-intro__title">The Three Pillars <br>of Quietude</h2>
+                            <span class="micro-tag">CRONOLOGÍA SOLAR</span>
+                            <h2 class="slide-intro__title">La Anatomía del <br>Sol Poniente</h2>
                             <p class="slide-intro__desc">
-                                Scroll horizontally to trace the fundamental structures of architectural silence.
+                                Desplázate horizontalmente para presenciar los tres estados sagrados del atardecer sobre la materia construida.
                             </p>
                             <div class="slide-intro__arrow">
-                                <span>SWIPE OR SCROLL</span>
+                                <span>SCROLL HACIA EL ESTE</span>
                                 <span class="arrow-right">→</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 2: Pillar 01 (Materiality) -->
+                    <!-- Slide 2: La Hora Dorada -->
                     <div class="journey__slide">
                         <div class="pillar-card">
                             <span class="pillar-card__num">02.1</span>
                             <div class="pillar-card__img-container">
-                                <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=1000&q=80" 
-                                     alt="Raw concrete slabs highlighting organic wood grain textures" 
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80" 
+                                     alt="Una lujosa casa minimalista en la ladera bajo un atardecer naranja" 
                                      loading="lazy"
                                      decoding="async">
                             </div>
                             <div class="pillar-card__text">
-                                <span class="micro-tag">MATERIALITY</span>
-                                <h3 class="pillar-card__title">Honest Brutalism</h3>
+                                <span class="micro-tag">FASE UNO</span>
+                                <h3 class="pillar-card__title">La Hora Dorada</h3>
                                 <p class="pillar-card__desc">
-                                    Raw concrete, hand-planed timber, and textured glass are left unfinished. They reveal their inner life and age gracefully under natural elements.
+                                    El sol baja a su punto más bajo. Su luz dorada roza horizontalmente las superficies, revelando texturas antes ocultas y fundiendo los bordes de la arquitectura con el entorno.
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 3: Pillar 02 (Light & Shadow) -->
+                    <!-- Slide 3: El Crepúsculo -->
                     <div class="journey__slide">
                         <div class="pillar-card">
                             <span class="pillar-card__num">02.2</span>
                             <div class="pillar-card__img-container">
-                                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1000&q=80" 
-                                     alt="Atmospheric light reflecting off pool of water inside a gallery" 
+                                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80" 
+                                     alt="Arquitectura minimalista con piscina reflejando el crepúsculo púrpura y naranja" 
                                      loading="lazy"
                                      decoding="async">
                             </div>
                             <div class="pillar-card__text">
-                                <span class="micro-tag">ATMOSPHERE</span>
-                                <h3 class="pillar-card__title">The Play of Shadows</h3>
+                                <span class="micro-tag">FASE DOS</span>
+                                <h3 class="pillar-card__title">El Crepúsculo</h3>
                                 <p class="pillar-card__desc">
-                                    Light cannot exist without darkness. We curate open voids where the path of the sun paints ever-changing artwork on smooth stone facades.
+                                    El sol ha cruzado el horizonte. El cielo se convierte en un lienzo degradado que va del carmín al azul cobalto, reflejándose perfectamente en los vidrios templados y el agua en reposo.
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 4: Pillar 03 (Void / Ma) -->
+                    <!-- Slide 4: El Resplandor Alpin -->
                     <div class="journey__slide">
                         <div class="pillar-card">
                             <span class="pillar-card__num">02.3</span>
                             <div class="pillar-card__img-container">
-                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" 
-                                     alt="Architectural void showcasing conceptual negative space against sky" 
+                                <img src="https://images.unsplash.com/photo-1509803874385-db7c23652552?auto=format&fit=crop&w=1000&q=80" 
+                                     alt="Silueta del cielo al atardecer cubierto por nubes en llamas doradas" 
                                      loading="lazy"
                                      decoding="async">
                             </div>
                             <div class="pillar-card__text">
-                                <span class="micro-tag">SPATIAL CONCEPT</span>
-                                <h3 class="pillar-card__title">Negative Space (Ma)</h3>
+                                <span class="micro-tag">FASE TRES</span>
+                                <h3 class="pillar-card__title">El Resplandor Remanente</h3>
                                 <p class="pillar-card__desc">
-                                    The Japanese philosophy of Ma celebrates the blank slate. The space between the pillars holds the real essence of structural freedom and rest.
+                                    La última vibración de luz cálida ilumina las nubes altas. Un resplandor de fuego que precede al silencio oscuro de la noche, el recordatorio final de que la belleza radica en lo efímero.
                                 </p>
                             </div>
                         </div>
@@ -297,85 +297,85 @@
             </div>
         </section>
 
-        <!-- ================= EDITORIAL GALLERY SYSTEM ================= -->
-        <section class="gallery" id="gallery" aria-label="Curated Architectural Archive">
+        <!-- ================= GALLERY: ARCHIVO DE HORIZONTES ================= -->
+        <section class="gallery" id="gallery" aria-label="Galería de Atardeceres">
             <div class="gallery__container">
                 
                 <div class="gallery__header">
                     <div class="gallery__header-left">
-                        <span class="micro-tag">03 / ARCHIVE</span>
-                        <h2 class="gallery__title">Curated <br>Atmospheres</h2>
+                        <span class="micro-tag">03 / ARCHIVO SOLAR</span>
+                        <h2 class="gallery__title">Horizontes <br>Bañados en Oro</h2>
                     </div>
                     <div class="gallery__header-right">
                         <p class="gallery__intro-text">
-                            A highly curated selection of moments capturing the interactions between architectural geometry and the fluid patterns of nature.
+                            Una colección de capturas editoriales que registran cómo la luz poniente abraza desde el desierto salvaje hasta las estructuras brutas de hormigón.
                         </p>
                     </div>
                 </div>
 
-                <!-- Asymmetric Masonry Grid -->
+                <!-- Galería Asimétrica Exclusiva de Atardeceres -->
                 <div class="gallery__grid">
                     
-                    <!-- Item 1: Large Vertical -->
-                    <div class="gallery__item gallery__item--large reveal-image" data-speed="0.05">
+                    <!-- Atardecer Brutalista -->
+                    <div class="gallery__item gallery__item--large reveal-image" data-speed="0.04">
                         <div class="gallery__item-inner">
                             <div class="image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=1200&q=80" 
-                                     alt="Contemporary house integrated seamlessly with soft pine forest" 
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Estructura moderna de hormigón con grandes ventanales reflejando un atardecer ardiente" 
                                      loading="lazy"
                                      decoding="async">
                             </div>
                             <div class="gallery__item-meta">
-                                <span>03.1 — COEXISTENCE</span>
-                                <span>PINE & GLASS</span>
+                                <span>03.1 — INTEGRACIÓN BRUTA</span>
+                                <span>REFLEJO DEL OCASO EN VIDRIO</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Item 2: Medium Portrait -->
-                    <div class="gallery__item gallery__item--medium reveal-image" data-speed="-0.03">
+                    <!-- Atardecer Natural (Montaña) -->
+                    <div class="gallery__item gallery__item--medium reveal-image" data-speed="-0.02">
                         <div class="gallery__item-inner">
                             <div class="image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1502005229762-fc1b2381f083?auto=format&fit=crop&w=800&q=80" 
-                                     alt="Minimal white interior showing delicate light shadows" 
+                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+                                     alt="Un atardecer dorado brillando entre cañones y un río sinuoso" 
                                      loading="lazy"
                                      decoding="async">
                             </div>
                             <div class="gallery__item-meta">
-                                <span>03.2 — INTERIOR VOID</span>
-                                <span>DOMESTIC CALM</span>
+                                <span>03.2 — VALLE SOLITARIO</span>
+                                <span>LUZ OBLICUA EN LA MONTAÑA</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Item 3: Horizontal Landscape -->
-                    <div class="gallery__item gallery__item--horizontal reveal-image" data-speed="0.02">
+                    <!-- Atardecer Espacios Abiertos -->
+                    <div class="gallery__item gallery__item--horizontal reveal-image" data-speed="0.01">
                         <div class="gallery__item-inner">
                             <div class="image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" 
-                                     alt="Symmetric concrete library hall, glowing ceiling" 
+                                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Un atardecer con sombras extremas en el interior de una villa minimalista" 
                                      loading="lazy"
                                      decoding="async">
                             </div>
                             <div class="gallery__item-meta">
-                                <span>03.3 — SYMMETRY</span>
-                                <span>INSTITUTIONAL SILENCE</span>
+                                <span>03.3 — ARQUITECTURA DE LUZ</span>
+                                <span>GEOMETRÍA Y AMBER</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Item 4: Detail Close-up -->
-                    <div class="gallery__item gallery__item--small reveal-image" data-speed="-0.06">
+                    <!-- Atardecer en Niebla -->
+                    <div class="gallery__item gallery__item--small reveal-image" data-speed="-0.04">
                         <div class="gallery__item-inner">
                             <div class="image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
-                                     alt="Warm minimalist room featuring dry branches in a vase" 
+                                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" 
+                                     alt="Bruma del atardecer colándose a través del bosque montañoso" 
                                      loading="lazy"
                                      decoding="async">
                             </div>
                             <div class="gallery__item-meta">
-                                <span>03.4 — DETAIL</span>
-                                <span>WABI-SABI ARRANGEMENT</span>
+                                <span>03.4 — LA NIEBLA DE FUEGO</span>
+                                <span>LUZ Y BRUMA AL FINAL DEL DÍA</span>
                             </div>
                         </div>
                     </div>
@@ -384,48 +384,48 @@
             </div>
         </section>
 
-        <!-- ================= CONTACT / EPILOGUE SECTION ================= -->
-        <section class="contact" id="contact" aria-label="Initiate Dialogue">
+        <!-- ================= CONTACT: INVITACIÓN CREPUSCULAR ================= -->
+        <section class="contact" id="contact" aria-label="Contacto">
             <div class="contact__container">
                 <div class="contact__grid">
                     
-                    <!-- Left Block: Creative Invitation -->
+                    <!-- Diálogo -->
                     <div class="contact__left">
-                        <span class="micro-tag">04 / DIALOGUE</span>
+                        <span class="micro-tag">04 / DIÁLOGOS DE LUZ</span>
                         <h2 class="contact__title" data-split>
-                            Begin a <br><em>conversation</em>.
+                            Hablemos del <br><em>atardecer</em>.
                         </h2>
                         <p class="contact__lead">
-                            If your spatial philosophy aligns with ours, we invite you to connect. Let us build a quiet horizon together.
+                            ¿Compartes nuestra devoción por los minutos contados de luz cálida? Escríbenos para colaborar en proyectos fotográficos o arquitectónicos inspirados en el ocaso.
                         </p>
                     </div>
 
-                    <!-- Right Block: Premium Form / Contact Details -->
+                    <!-- Formulario Premium -->
                     <div class="contact__right">
                         <form class="contact__form" id="js-contact-form" autocomplete="off">
                             
                             <div class="form-group">
-                                <label for="name" class="form-group__label">YOUR NAME</label>
-                                <input type="text" id="name" name="name" class="form-group__input" placeholder="Enter name" required>
+                                <label for="name" class="form-group__label">TU NOMBRE</label>
+                                <input type="text" id="name" name="name" class="form-group__input" placeholder="Nombre completo" required>
                                 <span class="form-group__line"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="form-group__label">EMAIL ADDRESS</label>
-                                <input type="email" id="email" name="email" class="form-group__input" placeholder="Enter email" required>
+                                <label for="email" class="form-group__label">TU CORREO ELECTRÓNICO</label>
+                                <input type="email" id="email" name="email" class="form-group__input" placeholder="correo@ejemplo.com" required>
                                 <span class="form-group__line"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="message" class="form-group__label">DIALOGUE / PROPOSAL</label>
-                                <textarea id="message" name="message" class="form-group__input form-group__input--textarea" placeholder="Write message" required></textarea>
+                                <label for="message" class="form-group__label">MENSAJE SOBRE EL ATARDECER</label>
+                                <textarea id="message" name="message" class="form-group__input form-group__input--textarea" placeholder="¿Qué significa para ti el ocaso?" required></textarea>
                                 <span class="form-group__line"></span>
                             </div>
 
                             <div class="form-submit-wrapper">
                                 <button type="submit" class="submit-btn" id="js-submit-btn">
                                     <span class="submit-btn__bg"></span>
-                                    <span class="submit-btn__text">SEND INQUIRY</span>
+                                    <span class="submit-btn__text">ENVIAR AL CREPÚSCULO</span>
                                     <span class="submit-btn__arrow">→</span>
                                 </button>
                             </div>
@@ -439,30 +439,30 @@
 
     </main>
 
-    <!-- ================= FOOTER / EXPERIENCE CLOSE ================= -->
+    <!-- ================= FOOTER: CIERRE DEL CICLO ================= -->
     <footer class="footer" role="contentinfo">
         <div class="footer__container">
             
             <div class="footer__top">
                 <div class="footer__brand">
                     <h3 class="footer__logo">QUIET HORIZON</h3>
-                    <p class="footer__slogan">The architecture of visual rest.</p>
+                    <p class="footer__slogan">La persistencia y el estudio fotográfico del atardecer.</p>
                 </div>
                 <div class="footer__links">
                     <div class="footer__col">
-                        <span class="footer__heading">CREDITS</span>
+                        <span class="footer__heading">CRÉDITOS VISUALES</span>
                         <ul>
-                            <li><span class="footer-link">Concept — Apple Inspired</span></li>
-                            <li><span class="footer-link">Layout — Cuberto Spirit</span></li>
-                            <li><span class="footer-link">Motion — GSAP / Lenis</span></li>
+                            <li><span class="footer-link">Concepto — Atardeceres del Pacífico</span></li>
+                            <li><span class="footer-link">Layout — Retícula Minimalista</span></li>
+                            <li><span class="footer-link">Librerías — GSAP & Lenis</span></li>
                         </ul>
                     </div>
                     <div class="footer__col">
-                        <span class="footer__heading">COORDINATES</span>
+                        <span class="footer__heading">COORDENADAS SOLAR</span>
                         <ul>
-                            <li><span class="footer-link">00°42'18" S</span></li>
-                            <li><span class="footer-link">78°28'20" W</span></li>
-                            <li><span class="footer-link">Quito, Ecuador</span></li>
+                            <li><span class="footer-link">Ocaso — Variable</span></li>
+                            <li><span class="footer-link">Latitud — 00°42'18" S</span></li>
+                            <li><span class="footer-link">Exposición — 2026</span></li>
                         </ul>
                     </div>
                 </div>
@@ -470,21 +470,20 @@
 
             <div class="footer__bottom">
                 <p class="footer__copyright">
-                    &copy; 2026 Quiet Horizon. Built for deep exploration. All rights reserved.
+                    &copy; 2026 Quiet Horizon. Todos los derechos reservados. Diseñado para contemplar el último rayo de luz.
                 </p>
                 <div class="footer__extra">
-                    <span class="micro-tag">AWARDS NOMINEE 2026</span>
+                    <span class="micro-tag">CANDIDATO SITIO DEL DÍA — AWWWARDS</span>
                 </div>
             </div>
 
         </div>
     </footer>
 
-    <!-- Audio Element (Quiet Atmospheric Drone) -->
-    <!-- Soft, copyright-free soundscape drone loaded over CDN -->
+    <!-- Audio del Drone Atmosférico Sutil -->
     <audio id="js-bg-audio" loop preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav"></audio>
 
-    <!-- Custom Logic Script -->
+    <!-- Enlace de Lógica principal -->
     <script src="script.js"></script>
 </body>
 </html>
