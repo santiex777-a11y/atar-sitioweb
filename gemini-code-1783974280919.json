@@ -1,0 +1,20 @@
+{
+  "short_name": "QuietHorizon",
+  "name": "Quiet Horizon — Immersive Architectural Experience",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=192&h=192&q=80",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=512&h=512&q=80",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "theme_color": "#0a0a0a"
+}
