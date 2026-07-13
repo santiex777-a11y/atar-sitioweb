@@ -1,12 +1,12 @@
 /**
  * ==========================================================================
- * QUIET HORIZON — ENGINE DE INTERACCIONES Y CONTROLADORES GSAP
+ * QUIET HORIZON — ENGINE INTEGRAL (EDICIÓN ESPECIAL ATARDECERES)
  * ==========================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Global Config & States
+    // Configuración Global y Accesibilidad
     const CONFIG = {
         isTouch: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
         reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn: document.getElementById('js-submit-btn')
     };
 
-    // Register GSAP plugins
+    // Inicializar plugins GSAP
     gsap.registerPlugin(ScrollTrigger);
 
     /**
-     * MODULE 1 — LENIS SMOOTH SCROLL ENGINE
+     * MÓDULO 1 — DESPLAZAMIENTO FLUIDO (LENIS)
      */
     let lenis;
     const initSmoothScroll = () => {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wheelMultiplier: 1.0
         });
 
-        // Link Lenis ticks to GSAP ScrollTrigger
+        // Vincular actualización de GSAP
         lenis.on('scroll', ScrollTrigger.update);
 
         gsap.ticker.add((time) => {
@@ -57,22 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * MODULE 2 — PRELOADER PROGRESS EXPERIENCE
+     * MÓDULO 2 — PRELOADER DE LA CARGA SOLAR
      */
     const initPreloader = () => {
         let progress = { value: 0 };
         
-        // Disable scroll during preloader
+        // Desactivar scroll temporalmente
         if (lenis) lenis.stop();
         document.body.style.overflow = 'hidden';
 
         gsap.to(progress, {
             value: 100,
-            duration: 2.8,
+            duration: 3.0,
             ease: 'power3.out',
             onUpdate: () => {
-                const currentVal = Math.floor(progress.value);
-                DOM.preloaderPerc.textContent = `${currentVal}%`;
+                const valActual = Math.floor(progress.value);
+                DOM.preloaderPerc.textContent = `${valActual}%`;
                 gsap.set(DOM.preloaderBar, { scaleX: progress.value / 100 });
             },
             onComplete: () => {
@@ -93,18 +93,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tl.to(DOM.preloader, {
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
-            duration: 1.4,
+            duration: 1.5,
             ease: 'power4.inOut'
         });
     };
 
     /**
-     * MODULE 3 — HERO TEXT REVEAL & CAMERA TRANSLATION (GSAP)
+     * MÓDULO 3 — REVELACIÓN DE LÍNEAS DE TEXTO Y ZOOM-OUT DEL FONDO (HERO)
      */
     const triggerHeroAnimations = () => {
         if (CONFIG.reducedMotion) return;
 
-        // Split text lines using SplitType
+        // Dividir texto con SplitType para revelado elegante
         const splitElements = document.querySelectorAll('[data-split]');
         splitElements.forEach(el => {
             const split = new SplitType(el, { types: 'lines, words', tagName: 'span' });
@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(split.words, {
                 yPercent: 0,
                 opacity: 1,
-                duration: 1.5,
-                stagger: 0.05,
+                duration: 1.6,
+                stagger: 0.06,
                 ease: 'power4.out',
                 scrollTrigger: {
                     trigger: el,
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Hero Parallax Background Zoom-Out
+        // Parallax sutil del atardecer de fondo
         gsap.to('.hero__bg-img', {
             scale: 1.0,
             ease: 'none',
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * MODULE 4 — PREMIUM CUSTOM CURSOR SYSTEM
+     * MÓDULO 4 — CURSOR LÍQUIDO PERSONALIZADO
      */
     const initCustomCursor = () => {
         if (CONFIG.isTouch || CONFIG.reducedMotion) return;
@@ -149,27 +149,27 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(DOM.cursor, {
                 x: e.clientX,
                 y: e.clientY,
-                duration: 0.4,
+                duration: 0.45,
                 ease: 'power3.out'
             });
         };
 
         window.addEventListener('mousemove', cursorMove);
 
-        // Hover Interventions on Interactive Elements
-        const interactiveSelectors = 'a, button, input, textarea, .reveal-image';
-        document.querySelectorAll(interactiveSelectors).forEach((elem) => {
-            elem.addEventListener('mouseenter', () => {
+        // Hover en elementos interactivos
+        const interactivos = 'a, button, input, textarea, .reveal-image, .submit-btn';
+        document.querySelectorAll(interactivos).forEach((elemento) => {
+            elemento.addEventListener('mouseenter', () => {
                 document.body.classList.add('cursor-hover');
             });
-            elem.addEventListener('mouseleave', () => {
+            elemento.addEventListener('mouseleave', () => {
                 document.body.classList.remove('cursor-hover');
             });
         });
     };
 
     /**
-     * MODULE 5 — HORIZONTAL NARRATIVE ENGINE (JOURNEY)
+     * MÓDULO 5 — TRASLACIÓN HORIZONTAL DE LOS ESTADOS DEL SOL (JOURNEY)
      */
     const initHorizontalJourney = () => {
         if (CONFIG.reducedMotion) return;
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = gsap.utils.toArray('.journey__slide');
         const scrollAmount = DOM.journeyScroll.offsetWidth - window.innerWidth;
 
-        // Sticky Pinning & Scroll Animation Setup
+        // Pinning horizontal del recorrido
         const horizontalTween = gsap.to(DOM.journeyScroll, {
             x: -scrollAmount,
             ease: 'none',
@@ -189,13 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: () => `+=${scrollAmount}`,
                 invalidateOnRefresh: true,
                 onUpdate: (self) => {
-                    // Update Chapter Progress Indicator Bar
+                    // Actualizar barra de progreso horizontal
                     gsap.set(DOM.journeyBar, { scaleX: self.progress });
                 }
             }
         });
 
-        // Subtle Image Parallax Transitions inside cards
+        // Parallax de imágenes internas de atardeceres
         slides.forEach((slide) => {
             const img = slide.querySelector('.pillar-card__img-container img');
             if (img) {
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * MODULE 6 — EDITORIAL REVEALS & GEOMETRIES
+     * MÓDULO 6 — REVELACIÓN DE IMÁGENES CON MÁSCARA EDITORIAL
      */
     const initEditorialReveals = () => {
         if (CONFIG.reducedMotion) {
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         DOM.images.forEach((element) => {
-            // Reveal curtain on viewport entry
+            // Revelado asimétrico al entrar al viewport
             ScrollTrigger.create({
                 trigger: element,
                 start: 'top 80%',
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 once: true
             });
 
-            // Asymmetric structural parallax calculation
+            // Parallax asimétrico mediante data-speed
             const speed = parseFloat(element.getAttribute('data-speed')) || 0;
             if (speed !== 0) {
                 gsap.to(element, {
@@ -253,34 +253,34 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * MODULE 7 — AMBIENT MUSIC ENGINE
+     * MÓDULO 7 — INTERACTIVIDAD DE AUDIO SUTIL (MEDITACIÓN SOLAR)
      */
     const initAudioEngine = () => {
         let isMuted = true;
 
         DOM.audioToggle.addEventListener('click', () => {
             if (isMuted) {
-                DOM.bgAudio.volume = 0.15;
+                DOM.bgAudio.volume = 0.12;
                 DOM.bgAudio.play()
                     .then(() => {
                         isMuted = false;
                         DOM.audioToggle.setAttribute('aria-pressed', 'true');
-                        DOM.audioToggle.querySelector('.audio-toggle__text').textContent = 'SOUND ON';
+                        DOM.audioToggle.querySelector('.audio-toggle__text').textContent = 'MÚSICA ENCENDIDA';
                     })
                     .catch(() => {
-                        console.warn('Playback blocked by browser autoplay security policies.');
+                        console.warn('La directiva de autoplay bloqueó la inicialización inicial.');
                     });
             } else {
                 DOM.bgAudio.pause();
                 isMuted = true;
                 DOM.audioToggle.setAttribute('aria-pressed', 'false');
-                DOM.audioToggle.querySelector('.audio-toggle__text').textContent = 'SOUND OFF';
+                DOM.audioToggle.querySelector('.audio-toggle__text').textContent = 'MÚSICA APAGADA';
             }
         });
     };
 
     /**
-     * MODULE 8 — PREMIUM FEEDBACK FORM DYNAMICS
+     * MÓDULO 8 — INTERACCIÓN DE FORMULARIO DE ALTA CALIDAD
      */
     const initFormInteractivity = () => {
         if (!DOM.contactForm) return;
@@ -291,11 +291,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = btnText.textContent;
             
             DOM.submitBtn.style.pointerEvents = 'none';
-            btnText.textContent = 'TRANSMITTING...';
+            btnText.textContent = 'ENVIANDO MENSAJE...';
 
-            // Imitate dynamic server response delay
             setTimeout(() => {
-                btnText.textContent = 'SUCCESSFULLY RECEIVED';
+                btnText.textContent = 'RECIBIDO EN EL OCASO';
                 DOM.contactForm.reset();
                 
                 setTimeout(() => {
@@ -307,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * EXECUTING INITIALIZATION SEQUENCES
+     * SECUENCIA DE INICIALIZACIÓN
      */
     initSmoothScroll();
     initPreloader();
@@ -317,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAudioEngine();
     initFormInteractivity();
 
-    // Redraw ScrollTrigger coordinates on viewport mutations
+    // Actualizar coordenadas en redimensionamiento
     window.addEventListener('resize', () => {
         ScrollTrigger.refresh();
     });
