@@ -1,1 +1,367 @@
+/* ==========================================================================
+   RESET Y VARIABLES (Paleta Cálida, Profunda y Minimalista)
+   ========================================================================== */
+:root {
+    --bg-dark: #0a050d; /* Fondo ultra oscuro con matiz violeta para contraste */
+    --text-light: #f5f0eb;
+    --text-muted: #a69fa9;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 120, 90, 0.15);
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-dark);
+    font-family: var(--font-sans);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   ELEMENTOS LÍQUIDOS DE FONDO (Blobs con movimiento orgánico)
+   ========================================================================== */
+.liquid-ambient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    filter: blur(120px); /* Difuminado extremo para generar el efecto de gas/líquido */
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    opacity: 0.45;
+    animation: pulseLiquid 18s infinite alternate ease-in-out;
+}
+
+.blob-orange {
+    top: -10%;
+    right: 10%;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, #ff5e62 0%, transparent 70%);
+}
+
+.blob-purple {
+    top: 40%;
+    left: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #7b1fa2 0%, transparent 70%);
+    animation-delay: -4s;
+}
+
+.blob-gold {
+    bottom: -10%;
+    right: 20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ff9966 0%, transparent 70%);
+    animation-delay: -8s;
+}
+
+@keyframes pulseLiquid {
+    0% { transform: translate(0px, 0px) scale(1) rotate(0deg); border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; }
+    50% { transform: translate(40px, -60px) scale(1.1) rotate(90deg); border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
+    100% { transform: translate(-20px, 20px) scale(0.9) rotate(180deg); border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; }
+}
+
+/* ==========================================================================
+   NAVEGACIÓN
+   ========================================================================== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 8%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.brand-logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-item {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   HERO SECTION (Estructura Asimétrica)
+   ========================================================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8% 8% 4% 8%;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr;
+    gap: 6%;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-text-block {
+    max-width: 520px;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #ff9966;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.main-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.main-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: #ff5e62;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   VISUAL COMPOSITION & LIQUID GLASS CARD
+   ========================================================================== */
+.visual-composition {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.image-wrapper {
+    width: 85%;
+    height: 550px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(105%);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* La pieza clave: Efecto Cristal Líquido */
+.liquid-glass-card {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 65%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(140%);
+    -webkit-backdrop-filter: blur(25px) saturate(140%);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+/* Brillo interno líquido reflejado */
+.card-glass-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, var(--glass-highlight) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.card-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.card-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   GALERÍA EDITORIAL (Asimétrica y Limpia)
+   ========================================================================== */
+.gallery-section {
+    padding: 10% 8%;
+    width: 100%;
+}
+
+.gallery-intro {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.item-large {
+    height: 600px;
+}
+
+.item-split {
+    height: 450px;
+    margin-top: 5rem; /* Desfase asimétrico adrede */
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.03);
+}
+
+/* Etiquetas flotantes tipo cristal sobre las imágenes */
+.glass-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(10, 5, 13, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+}
+
+.glass-label span {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   RESPONSIVE (Ajustes Fluidos)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+    }
+    
+    .hero-text-block {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .visual-composition {
+        justify-content: center;
+    }
+    
+    .image-wrapper {
+        width: 100%;
+        height: 450px;
+    }
+
+    .liquid-glass-card {
+        width: 80%;
+        left: 10%;
+        bottom: -30px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .item-split {
+        margin-top: 0;
+        height: 500px;
+    }
+}
